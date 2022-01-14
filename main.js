@@ -46,47 +46,40 @@ const customerArray = [
     { firstName: "Sonia", lastName: "Oberbrunner", monthOfBirth: "August", yearOfBirth: 1983 }
 ]
 
-
 // Iterate the array of year integers
 for (const year of yearsArray) {
-
     // Iterate the array of month strings
     for (const month of monthArray) {
-        // Two blank lines for formatting
-        console.log("\n\n")
-        // Print the current year
-        console.log(year)
-        // Print the current month
-        console.log(month)
-        console.log("---------------")
 
+        // Start with the assumption that we aren't displaying any messages
+        const birthdayMessages = []
 
-        // Iterate the array of customer objects
+        // Iterate the array of customers
         for (const customer of customerArray) {
-            // Compare monthOfBirth property with current month
+            // Does the current customer have a birthday this month?
             if (customer.monthOfBirth === month) {
-                // Lisa Jackson is n years old
-
-                // Calculate age by subtracting current year minus yearOfBirth property value
+                // Add a message with customer info to messages array
                 const age = year - customer.yearOfBirth
+                const newMessage = `${customer.firstName} ${customer.lastName} is ${age} years old`
+                birthdayMessages.push(newMessage)
+            }
+        }
 
-                // Access firstName and lastName property on current customer object
-                // Print the customer name and current age
-                console.log(`${customer.firstName} ${customer.lastName} is ${age} years old`)
+        // If there are messages
+        if (birthdayMessages.length > 0) {
+            // Two blank lines for formatting
+            console.log("\n\n")
+            // Print the current year
+            console.log(year)
+            // Print the current month
+            console.log(month)
+            console.log("---------------")
+
+            // Iterate the array of messages
+            for (const message of birthdayMessages) {
+                // Display each message
+                console.log(message)
             }
         }
     }
 }
-
-
-
-
-/*
-        2022
-        "April"
-        ---------------
-        Lisa Jackson is n years old
-        Michael Weathersby is n years old
-*/
-
-
